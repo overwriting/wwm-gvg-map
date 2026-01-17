@@ -85,7 +85,7 @@ function drawMap() {
     ctx.drawImage(mapImage, 0, 0, canvas.width, canvas.height);
 }
 
-const DURATION = 30;
+const DURATION = 270;
 
 class Timer {
     constructor(element) {
@@ -180,7 +180,9 @@ class Timer {
     updateVisual() {
         if (this.element.classList.contains('boss')) return; 
         
-        const text = this.remainingTime.toString();
+        const mins = Math.floor(this.remainingTime / 60);
+        const secs = this.remainingTime % 60;
+        const text = `${mins}:${secs.toString().padStart(2, '0')}`;
         
         let span = this.element.querySelector('span');
         if (!span) {
