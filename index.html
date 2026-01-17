@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="controls" class="header-bar">
+        <div class="header-section">
+            <button class="header-btn primary" id="start-game-btn">Start Game</button>
+            <div id="game-timer" class="timer-display">00:00</div>
+        </div>
+
+        <div class="header-section center">
+            <button class="header-btn" id="boss-mode-btn">Boss Timers</button>
+            <button class="header-btn" id="edit-mode-btn">Edit Mode</button>
+        </div>
+
+        <div class="header-section right" id="file-controls" style="display:none;">
+            <button class="header-btn small" id="export-btn">Save</button>
+            <button class="header-btn small" id="import-trigger">Load</button>
+            <input type="file" id="import-btn" style="display: none;" accept=".json">
+        </div>
+    </div>
+    <div id="coords-output"></div>
+    <div id="app">
+        <canvas id="mapCanvas"></canvas>
+        <!-- Team Friendly -->
+        <div class="timer-btn team-friendly cleared" id="t1">1</div>
+        <div class="timer-btn team-friendly cleared" id="t2">2</div>
+        <div class="timer-btn team-friendly cleared" id="t3">3</div>
+        <div class="timer-btn team-friendly cleared" id="t4">4</div>
+        
+        <!-- Team Enemy -->
+        <div class="timer-btn team-enemy cleared" id="t5">5</div>
+        <div class="timer-btn team-enemy cleared" id="t6">6</div>
+        <div class="timer-btn team-enemy cleared" id="t7">7</div>
+        <div class="timer-btn team-enemy cleared" id="t8">8</div>
+
+        <!-- Boss Timers -->
+        <div class="timer-btn boss hidden" id="b1" data-schedule="15,25">15m</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
