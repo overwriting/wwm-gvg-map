@@ -279,7 +279,7 @@ startGameBtn.addEventListener('click', () => {
         gameInterval = null;
         startGameBtn.textContent = "Start Game";
         startGameBtn.classList.remove('active');
-        gameTimerDisplay.textContent = "00:00";
+        gameTimerDisplay.textContent = "30:00";
         
         bossBtns.forEach(btn => {
             btn.classList.remove('running', 'expired', 'cleared');
@@ -309,8 +309,11 @@ function updateGameTimer() {
     const now = Date.now();
     const elapsedSeconds = Math.floor((now - gameStartTime) / 1000);
     
-    const mins = Math.floor(elapsedSeconds / 60);
-    const secs = elapsedSeconds % 60;
+    const totalGameSeconds = 30 * 60;
+    const remainingGameSeconds = Math.max(0, totalGameSeconds - elapsedSeconds);
+
+    const mins = Math.floor(remainingGameSeconds / 60);
+    const secs = remainingGameSeconds % 60;
     gameTimerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
     
     bossBtns.forEach(btn => updateBossVisual(btn, elapsedSeconds));
