@@ -40,7 +40,7 @@ if (localStorage.getItem('mapTimerConfig')) {
 }
 
 const mapImage = new Image();
-mapImage.src = 'map.png';
+mapImage.src = 'map.jpg';
 
 mapImage.onload = () => {
     canvas.width = mapImage.width;
